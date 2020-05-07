@@ -23,10 +23,10 @@ export const ExpensesSummary = ({ numberOfExpenses, totalExpenses }) => {
         <div>
             {
                 numberOfExpenses === 0 ? (
-                    <p>Viewing 0 expenses</p>
+                    <h1>Viewing 0 expenses</h1>
                 ) :
                     (
-                        <p>Viewing { numberOfExpenses } { expensesWord } totalling { totalExpensesFormatted }</p>
+                        <h1>Viewing { numberOfExpenses } { expensesWord } totalling { totalExpensesFormatted }</h1>
                     )
             }
 
