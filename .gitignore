@@ -2,3 +2,5 @@ node_modules/
 .DS_Store
 indecision.code-workspace
 public/dist/
+.env.test
+.env.development
