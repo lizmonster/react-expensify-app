@@ -66,3 +66,30 @@ test('should not edit expense if expense not found', () => {
     const state = expensesReducer(expenses, action);
     expect(state).toEqual(expenses);
 });
+
+test('should set expenses', () => {
+    const newExpenses = [{
+        id: '99',
+        description: 'Zoidberg',
+        note: 'note!',
+        amount: 19500,
+        createdAt: 0
+    },
+    {
+        id: '98',
+        description: 'Dexter',
+        note: 'note!',
+        amount: 19600,
+        createdAt: 0
+    }];
+    const action = {
+        type: 'SET_EXPENSES',
+        expenses: [newExpenses]
+    };
+    const state = expensesReducer(expenses, action);
+    expect(state).toEqual([newExpenses]);
+    // dispatch an action
+    // expenses passed in should equal expenses in state
+    // should have some initial expenses
+    // new ones for action object
+});
