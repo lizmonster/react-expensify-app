@@ -1,16 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
+import RemoveModal from './RemoveModal';
+
 import { startEditExpense, startRemoveExpense } from '../actions/expenses';
 
 export class EditExpensePage extends React.Component {
+    state = {
+        removingExpense: undefined
+    }
+    handleRemoveExpense = (expense) => {
+        this.setState(() => ({ removingExpense: true }));
+    }
     onSubmit = (expense) => {
         this.props.startEditExpense(this.props.expense.id, expense);
         this.props.history.push('/dashboard');
     };
     onRemove = () => {
+        this.setState(() => ({
+            removingExpense: undefined
+        }));
         this.props.startRemoveExpense({ id: this.props.expense.id });
         this.props.history.push('/dashboard');
+    };
+    onDismiss = () => {
+        this.setState(() => ({
+            removingExpense: undefined
+        }));
     };
     render() {
         return (
@@ -25,8 +41,14 @@ export class EditExpensePage extends React.Component {
                         expense={this.props.expense}
                         onSubmit={this.onSubmit}
                     />
-                        <button class="button button--secondary" onClick={this.onRemove}>Remove Expense</button>
+                    <button className="button button--secondary" onClick={this.handleRemoveExpense}>Remove Expense</button>
                 </div>
+                <RemoveModal 
+                    expenseName={this.props.expense.description}
+                    removingExpense={this.state.removingExpense}
+                    handleRemove={this.onRemove}
+                    onDismiss={this.onDismiss} 
+                />
             </div>
         )
     }
