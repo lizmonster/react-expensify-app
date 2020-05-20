@@ -21,6 +21,9 @@ exports[`should render a single expense correctly 1`] = `
         $1.15
       </span>
     </h1>
+    <p>
+      Total unfiltered expenses: 
+    </p>
     <div
       className="page-header__actions"
     >
@@ -51,6 +54,9 @@ exports[`should render empty ExpensesSummary correctly 1`] = `
       </span>
        expenses
     </h1>
+    <p>
+      Total unfiltered expenses: 
+    </p>
     <div
       className="page-header__actions"
     >
@@ -86,6 +92,9 @@ exports[`should render multiple expenses correctly 1`] = `
         $9.32
       </span>
     </h1>
+    <p>
+      Total unfiltered expenses: 
+    </p>
     <div
       className="page-header__actions"
     >
